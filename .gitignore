@@ -1,0 +1,20 @@
+# Quarto output
+*.hwpx
+*.docx
+*.hwpx-cleanup
+
+# Keep bundled hwpx files in extension
+!_extensions/**/*.hwpx
+
+# Quarto cache
+.quarto/
+_freeze/
+**/*.quarto_ipynb
+
+# OS
+.DS_Store
+
+# Editor
+.luarc.json
+
+/.quarto/

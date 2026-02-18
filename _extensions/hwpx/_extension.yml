@@ -1,0 +1,9 @@
+title: HWPX
+author: quarto-hwpx
+version: "0.1.0"
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    docx:
+      filters:
+        - hwpx-filter.lua

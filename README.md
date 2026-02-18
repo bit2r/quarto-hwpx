@@ -7,7 +7,7 @@ Quarto 마크다운(`.qmd`)을 한글과컴퓨터 HWPX 문서(`.hwpx`)로 변환
 ## 설치
 
 ```bash
-quarto add statkclee/quarto-hwpx
+quarto add bit2r/quarto-hwpx
 ```
 
 ## 사용법

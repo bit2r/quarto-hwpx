@@ -30,7 +30,7 @@ function Pandoc(doc)
 
   if ok then
     io.stderr:write("[hwpx] Successfully created " .. hwpx_path .. "\n")
-    -- Schedule .docx cleanup: write a marker file so post-render can delete it
+    -- Schedule .docx cleanup via marker file (post-render hook deletes it)
     local marker_path = output_file .. ".hwpx-cleanup"
     local marker = io.open(marker_path, "w")
     if marker then

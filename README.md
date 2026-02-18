@@ -12,6 +12,19 @@ quarto add bit2r/quarto-hwpx
 
 ## 사용법
 
+### 1. `_quarto.yml` 설정
+
+중간 `.docx` 파일 자동 삭제를 위해 `_quarto.yml`에 post-render를 추가합니다:
+
+```yaml
+project:
+  type: default
+  post-render:
+    - _extensions/bit2r/hwpx/cleanup-docx.sh
+```
+
+### 2. 문서 작성
+
 ```yaml
 ---
 title: "보고서 제목"
@@ -23,6 +36,8 @@ format:
     toc: true
 ---
 ```
+
+### 3. 렌더링
 
 ```bash
 quarto render example.qmd --to hwpx-docx
@@ -36,7 +51,7 @@ quarto render example.qmd --to hwpx-docx
 3. `pandoc.pipe()` 로 `hwpx_writer.py` 호출
 4. Python이 `Skeleton.hwpx` 템플릿을 열어 XML 재생성
 5. 새 ZIP으로 `.hwpx` 저장
-6. `cleanup-docx.sh`가 중간 `.docx` 삭제
+6. `cleanup-docx.sh` (post-render)가 중간 `.docx` 삭제
 
 ## 지원 요소
 
@@ -97,7 +112,7 @@ quarto-hwpx/
 │   ├── hwpx-filter.lua         # Lua 필터: AST → JSON → Python
 │   ├── hwpx_writer.py          # Python: JSON AST → HWPX
 │   ├── Skeleton.hwpx           # HWPX 템플릿 (ZIP+XML)
-│   ├── cleanup-docx.sh         # 중간 .docx 삭제
+│   ├── cleanup-docx.sh         # 중간 .docx 삭제 (post-render)
 │   └── assets/
 │       ├── extension-diagram.svg   # 파이프라인 다이어그램
 │       ├── brother_template.hwpx   # 참조 템플릿

@@ -1,104 +1,145 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="'Palatino Linotype','Georgia','serif'" fill="#333">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="'Palatino Linotype','Georgia','serif'">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --fg2: #555555;
+      --fg3: #888888;
+      --fg4: #aaaaaa;
+      --border: #999999;
+      --border-light: #cccccc;
+      --fill1: #f8f5ef;
+      --fill2: #f0ece3;
+      --fill3: #eae6db;
+      --fill4: #e8e2d5;
+      --fill-box: #fcfcfc;
+      --arrow: #777777;
+      --arrow-light: #aaaaaa;
+      --rule: #cccccc;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --fg2: #b0b8c1;
+        --fg3: #8b949e;
+        --fg4: #6e7681;
+        --border: #8b949e;
+        --border-light: #30363d;
+        --fill1: #161b22;
+        --fill2: #1c2128;
+        --fill3: #21262d;
+        --fill4: #282e36;
+        --fill-box: #161b22;
+        --arrow: #8b949e;
+        --arrow-light: #6e7681;
+        --rule: #30363d;
+      }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="720" height="520" fill="var(--bg)" rx="4"/>
 
   <!-- Title -->
-  <text x="360" y="36" text-anchor="middle" font-size="18" font-style="italic" fill="#111">quarto-hwpx Extension Pipeline</text>
-  <line x1="60" y1="48" x2="660" y2="48" stroke="#ccc" stroke-width="0.5"/>
+  <text x="360" y="36" text-anchor="middle" font-size="18" font-style="italic" fill="var(--fg)">quarto-hwpx Extension Pipeline</text>
+  <line x1="60" y1="48" x2="660" y2="48" stroke="var(--rule)" stroke-width="0.5"/>
 
-  <!-- Step 1: .qmd (Column 1: Center 120) -->
-  <rect x="60" y="80" width="120" height="48" rx="3" fill="none" stroke="#555" stroke-width="1"/>
-  <text x="120" y="100" text-anchor="middle" font-size="13" fill="#111">example</text>
-  <text x="120" y="117" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">.qmd</text>
-  <text x="120" y="145" text-anchor="middle" font-size="9.5" fill="#888" font-style="italic">Markdown + YAML</text>
+  <!-- Step 1: .qmd -->
+  <rect x="60" y="80" width="120" height="48" rx="3" fill="var(--bg)" stroke="var(--fg2)" stroke-width="1"/>
+  <text x="120" y="100" text-anchor="middle" font-size="13" fill="var(--fg)">example</text>
+  <text x="120" y="117" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--fg)">.qmd</text>
+  <text x="120" y="145" text-anchor="middle" font-size="9.5" fill="var(--fg3)" font-style="italic">Markdown + YAML</text>
 
-  <!-- Arrow 1: Step 1 -> Step 2 -->
-  <line x1="180" y1="104" x2="243" y2="104" stroke="#777" stroke-width="0.8" marker-end="url(#arrow)"/>
-  <text x="212" y="96" text-anchor="middle" font-size="8.5" fill="#999">quarto render</text>
+  <!-- Arrow 1 -->
+  <line x1="180" y1="104" x2="243" y2="104" stroke="var(--arrow)" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <text x="212" y="96" text-anchor="middle" font-size="8.5" fill="var(--fg3)">quarto render</text>
 
-  <!-- Step 2: Pandoc (Column 2: Center 305) -->
-  <rect x="245" y="80" width="120" height="48" rx="3" fill="#f8f5ef" stroke="#bbb" stroke-width="1"/>
-  <text x="305" y="100" text-anchor="middle" font-size="13" fill="#111">Pandoc</text>
-  <text x="305" y="117" text-anchor="middle" font-size="11" fill="#666">AST (docx base)</text>
+  <!-- Step 2: Pandoc -->
+  <rect x="245" y="80" width="120" height="48" rx="3" fill="var(--fill1)" stroke="var(--border-light)" stroke-width="1"/>
+  <text x="305" y="100" text-anchor="middle" font-size="13" fill="var(--fg)">Pandoc</text>
+  <text x="305" y="117" text-anchor="middle" font-size="11" fill="var(--fg2)">AST (docx base)</text>
 
-  <!-- Arrow 2: Step 2 -> Step 3 -->
-  <line x1="365" y1="104" x2="418" y2="104" stroke="#777" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <!-- Arrow 2 -->
+  <line x1="365" y1="104" x2="418" y2="104" stroke="var(--arrow)" stroke-width="0.8" marker-end="url(#arrow)"/>
 
-  <!-- Step 3: Lua Filter (Column 3: Center 490) -->
-  <rect x="420" y="80" width="140" height="48" rx="3" fill="#f0ece3" stroke="#bbb" stroke-width="1"/>
-  <text x="490" y="100" text-anchor="middle" font-size="13" fill="#111">hwpx-filter</text>
-  <text x="490" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="#111">.lua</text>
-  <text x="490" y="145" text-anchor="middle" font-size="9.5" fill="#888" font-style="italic">AST → JSON serialize</text>
+  <!-- Step 3: Lua Filter -->
+  <rect x="420" y="80" width="140" height="48" rx="3" fill="var(--fill2)" stroke="var(--border-light)" stroke-width="1"/>
+  <text x="490" y="100" text-anchor="middle" font-size="13" fill="var(--fg)">hwpx-filter</text>
+  <text x="490" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="var(--fg)">.lua</text>
+  <text x="490" y="145" text-anchor="middle" font-size="9.5" fill="var(--fg3)" font-style="italic">AST → JSON serialize</text>
 
-  <!-- Arrow 3: vertical down from Lua -->
-  <line x1="490" y1="128" x2="490" y2="192" stroke="#777" stroke-width="0.8" marker-end="url(#arrow)"/>
-  <text x="504" y="165" font-size="8.5" fill="#999" font-style="italic">pandoc.pipe()</text>
+  <!-- Arrow 3: vertical -->
+  <line x1="490" y1="128" x2="490" y2="192" stroke="var(--arrow)" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <text x="504" y="165" font-size="8.5" fill="var(--fg3)" font-style="italic">pandoc.pipe()</text>
 
   <!-- Step 4: Python Writer -->
-  <rect x="390" y="194" width="200" height="56" rx="3" fill="#eae6db" stroke="#999" stroke-width="1.2"/>
-  <text x="490" y="216" text-anchor="middle" font-size="14" fill="#111">hwpx_writer</text>
-  <text x="490" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">.py</text>
+  <rect x="390" y="194" width="200" height="56" rx="3" fill="var(--fill3)" stroke="var(--border)" stroke-width="1.2"/>
+  <text x="490" y="216" text-anchor="middle" font-size="14" fill="var(--fg)">hwpx_writer</text>
+  <text x="490" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="var(--fg)">.py</text>
 
-  <!-- Annotation for Python -->
-  <text x="615" y="208" font-size="9" fill="#888" font-style="italic">JSON AST → HWPX</text>
-  <text x="615" y="221" font-size="9" fill="#888" font-style="italic">section0.xml 생성</text>
-  <text x="615" y="234" font-size="9" fill="#888" font-style="italic">header.xml 수정</text>
-  <text x="615" y="247" font-size="9" fill="#888" font-style="italic">content.hpf 갱신</text>
+  <!-- Annotation -->
+  <text x="615" y="208" font-size="9" fill="var(--fg3)" font-style="italic">JSON AST → HWPX</text>
+  <text x="615" y="221" font-size="9" fill="var(--fg3)" font-style="italic">section0.xml 생성</text>
+  <text x="615" y="234" font-size="9" fill="var(--fg3)" font-style="italic">header.xml 수정</text>
+  <text x="615" y="247" font-size="9" fill="var(--fg3)" font-style="italic">content.hpf 갱신</text>
 
-  <!-- Skeleton input (Column 1: Center 120) -->
-  <rect x="50" y="200" width="140" height="44" rx="3" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="4,3"/>
-  <text x="120" y="220" text-anchor="middle" font-size="12" fill="#666">Skeleton</text>
-  <text x="120" y="236" text-anchor="middle" font-size="12" font-weight="bold" fill="#666">.hwpx</text>
-  <text x="120" y="260" text-anchor="middle" font-size="9.5" fill="#999" font-style="italic">template (ZIP+XML)</text>
+  <!-- Skeleton input -->
+  <rect x="50" y="200" width="140" height="44" rx="3" fill="var(--bg)" stroke="var(--fg4)" stroke-width="0.8" stroke-dasharray="4,3"/>
+  <text x="120" y="220" text-anchor="middle" font-size="12" fill="var(--fg2)">Skeleton</text>
+  <text x="120" y="236" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--fg2)">.hwpx</text>
+  <text x="120" y="260" text-anchor="middle" font-size="9.5" fill="var(--fg3)" font-style="italic">template (ZIP+XML)</text>
 
   <!-- Arrow: Skeleton → Python -->
-  <line x1="190" y1="222" x2="388" y2="222" stroke="#aaa" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+  <line x1="190" y1="222" x2="388" y2="222" stroke="var(--arrow-light)" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
 
-  <!-- Arrow 4: vertical down from Python -->
-  <line x1="490" y1="250" x2="490" y2="316" stroke="#777" stroke-width="0.8" marker-end="url(#arrow)"/>
-  <text x="504" y="288" font-size="8.5" fill="#999" font-style="italic">ZIP repackage</text>
+  <!-- Arrow 4: vertical -->
+  <line x1="490" y1="250" x2="490" y2="316" stroke="var(--arrow)" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <text x="504" y="288" font-size="8.5" fill="var(--fg3)" font-style="italic">ZIP repackage</text>
 
-  <!-- Step 5: .hwpx output (Column 3: Center 490) -->
-  <rect x="420" y="318" width="140" height="48" rx="3" fill="#e8e2d5" stroke="#888" stroke-width="1.2"/>
-  <text x="490" y="338" text-anchor="middle" font-size="13" fill="#111">example</text>
-  <text x="490" y="355" text-anchor="middle" font-size="14" font-weight="bold" fill="#111">.hwpx</text>
+  <!-- Step 5: .hwpx output -->
+  <rect x="420" y="318" width="140" height="48" rx="3" fill="var(--fill4)" stroke="var(--border)" stroke-width="1.2"/>
+  <text x="490" y="338" text-anchor="middle" font-size="13" fill="var(--fg)">example</text>
+  <text x="490" y="355" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--fg)">.hwpx</text>
 
   <!-- Arrow to 한글 -->
-  <line x1="490" y1="366" x2="490" y2="420" stroke="#777" stroke-width="0.8" marker-end="url(#arrow)"/>
+  <line x1="490" y1="366" x2="490" y2="420" stroke="var(--arrow)" stroke-width="0.8" marker-end="url(#arrow)"/>
 
   <!-- 한글 app -->
-  <text x="490" y="440" text-anchor="middle" font-size="14" fill="#111">한글과컴퓨터</text>
-  <text x="490" y="458" text-anchor="middle" font-size="10" fill="#999" font-style="italic">한글 for Mac / Windows</text>
+  <text x="490" y="440" text-anchor="middle" font-size="14" fill="var(--fg)">한글과컴퓨터</text>
+  <text x="490" y="458" text-anchor="middle" font-size="10" fill="var(--fg3)" font-style="italic">한글 for Mac / Windows</text>
 
-  <!-- .docx cleanup side note (Column 1: Center 120) -->
-  <rect x="55" y="318" width="130" height="44" rx="3" fill="none" stroke="#ccc" stroke-width="0.7"/>
-  <text x="120" y="338" text-anchor="middle" font-size="11" fill="#999">cleanup-docx</text>
-  <text x="120" y="354" text-anchor="middle" font-size="11" fill="#999" font-weight="bold">.sh</text>
-  <text x="120" y="378" text-anchor="middle" font-size="9.5" fill="#bbb" font-style="italic">중간 .docx 삭제</text>
-  
-  <!-- Connection: .hwpx -> cleanup-docx (post-render) -->
-  <line x1="420" y1="342" x2="192" y2="342" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
-  <text x="305" y="335" text-anchor="middle" font-size="9" fill="#aaa">post-render cleanup</text>
+  <!-- cleanup-docx -->
+  <rect x="55" y="318" width="130" height="44" rx="3" fill="var(--bg)" stroke="var(--border-light)" stroke-width="0.7"/>
+  <text x="120" y="338" text-anchor="middle" font-size="11" fill="var(--fg3)">cleanup-docx</text>
+  <text x="120" y="354" text-anchor="middle" font-size="11" fill="var(--fg3)" font-weight="bold">.sh</text>
+  <text x="120" y="378" text-anchor="middle" font-size="9.5" fill="var(--fg4)" font-style="italic">중간 .docx 삭제</text>
 
-  <!-- HWPX internal structure (sidenote) -->
-  <line x1="560" y1="342" x2="580" y2="342" stroke="#bbb" stroke-width="0.5"/>
-  <text x="588" y="326" font-size="9" fill="#888">Contents/</text>
-  <text x="596" y="340" font-size="9" fill="#999" font-style="italic">section0.xml</text>
-  <text x="596" y="353" font-size="9" fill="#999" font-style="italic">header.xml</text>
-  <text x="596" y="366" font-size="9" fill="#999" font-style="italic">content.hpf</text>
+  <line x1="420" y1="342" x2="192" y2="342" stroke="var(--border-light)" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#arrow-light)"/>
+  <text x="305" y="335" text-anchor="middle" font-size="9" fill="var(--fg4)">post-render cleanup</text>
 
-  <!-- Supported elements box -->
-  <rect x="55" y="425" width="315" height="75" rx="3" fill="#fcfcfc" stroke="#eee" stroke-width="0.5"/>
-  <text x="65" y="442" font-size="9.5" fill="#999" font-weight="bold">Block</text>
-  <text x="65" y="456" font-size="8.5" fill="#bbb">Para  Header  CodeBlock  Table  BulletList  OrderedList  BlockQuote</text>
-  <text x="65" y="476" font-size="9.5" fill="#999" font-weight="bold">Inline</text>
-  <text x="65" y="490" font-size="8.5" fill="#bbb">Str  Strong  Emph  Code  Link  Math → hp:equation  Quoted  Span</text>
+  <!-- HWPX internal structure -->
+  <line x1="560" y1="342" x2="580" y2="342" stroke="var(--border-light)" stroke-width="0.5"/>
+  <text x="588" y="326" font-size="9" fill="var(--fg3)">Contents/</text>
+  <text x="596" y="340" font-size="9" fill="var(--fg3)" font-style="italic">section0.xml</text>
+  <text x="596" y="353" font-size="9" fill="var(--fg3)" font-style="italic">header.xml</text>
+  <text x="596" y="366" font-size="9" fill="var(--fg3)" font-style="italic">content.hpf</text>
+
+  <!-- Supported elements -->
+  <rect x="55" y="425" width="315" height="75" rx="3" fill="var(--fill-box)" stroke="var(--border-light)" stroke-width="0.5"/>
+  <text x="65" y="442" font-size="9.5" fill="var(--fg3)" font-weight="bold">Block</text>
+  <text x="65" y="456" font-size="8.5" fill="var(--fg4)">Para  Header  CodeBlock  Table  BulletList  OrderedList  BlockQuote</text>
+  <text x="65" y="476" font-size="9.5" fill="var(--fg3)" font-weight="bold">Inline</text>
+  <text x="65" y="490" font-size="8.5" fill="var(--fg4)">Str  Strong  Emph  Code  Link  Math → hp:equation  Quoted  Span</text>
 
   <!-- Arrow markers -->
   <defs>
     <marker id="arrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
-      <polygon points="0 0, 7 2.5, 0 5" fill="#777"/>
+      <polygon points="0 0, 7 2.5, 0 5" fill="var(--arrow)"/>
     </marker>
     <marker id="arrow-light" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
-      <polygon points="0 0, 7 2.5, 0 5" fill="#aaa"/>
+      <polygon points="0 0, 7 2.5, 0 5" fill="var(--arrow-light)"/>
     </marker>
   </defs>
 </svg>
